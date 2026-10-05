@@ -1,0 +1,129 @@
+:root {
+  --primary: #0d5c75;
+  --primary-dark: #073a4b;
+  --primary-light: #167a99;
+  --primary-surface: #e8f4f8;
+  --primary-glow: rgba(13, 92, 117, 0.25);
+
+  --heart-red: #e63946;
+  --heart-red-light: #ffebed;
+  --success: #2a9d8f;
+  --success-light: #e6f7f5;
+  --warning: #f4a261;
+  --warning-light: #fff3ea;
+
+  --bg-main: #f5f8fb;
+  --card-bg: #ffffff;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --border-light: #edf2f7;
+
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 12px rgba(13, 92, 117, 0.08);
+  --shadow-lg: 0 10px 25px rgba(13, 92, 117, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Hind Siliguri', 'Outfit', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Utilities */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-waiting {
+  background-color: var(--primary-surface);
+  color: var(--primary);
+}
+
+.badge-in-chamber {
+  background-color: var(--success-light);
+  color: var(--success);
+  border: 1px solid rgba(42, 157, 143, 0.3);
+  animation: pulse-ring 2s infinite;
+}
+
+.badge-completed {
+  background-color: #f1f5f9;
+  color: var(--text-muted);
+}
+
+.badge-cancelled {
+  background-color: var(--heart-red-light);
+  color: var(--heart-red);
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(42, 157, 143, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(42, 157, 143, 0);
+  }
+}
+
+/* Print view for receptionist roster printing */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
